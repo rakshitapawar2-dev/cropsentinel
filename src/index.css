@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream font-sans text-ink antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04';
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply text-forest-900;
+  }
+
+  :focus-visible {
+    outline-offset: 2px;
+  }
+
+  /* Keep tap targets comfortable on phones. */
+  button,
+  a,
+  select,
+  input,
+  textarea {
+    touch-action: manipulation;
+  }
+}
+
+@layer utilities {
+  .chat-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: theme(colors.forest.200) transparent;
+  }
+
+  .chat-scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .chat-scroll::-webkit-scrollbar-thumb {
+    background-color: theme(colors.forest.200);
+    border-radius: 9999px;
+  }
+
+  .safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 0.75rem);
+  }
+}
